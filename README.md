@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# 📚 BookLog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Goal
 
-## Available Scripts
+- 적극적인 독서 활동을 위한 추천도서 리스트업 및 독서활동 기록 앱
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- 로그인 기능 (Firebase Auth)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 추천도서 리스트 보여주기
+- 추천도서 상세페이지 보여주기
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - 문화체육관광부 추천도서 API: https://www.culture.go.kr/data/openapi/openapiView.do?id=170&category=F&gubun=A
+  - 문화체육관광부 대학신입생 추천도서 API: https://www.culture.go.kr/data/openapi/openapiView.do?id=366&category=F&gubun=A
+  - 기타 등등
 
-### `yarn test`
+- 위시리스트 (좋아하는 / 나중에 읽을 책) 추가하기
+- 저장된 위시리스트 보여주기
+- 위시리스트 삭제하기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 내 북로그 작성하기
+  - 도서 검색 API : https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book
+  - 이미지 업로드해서 직접 도서 등록하기?
+- 내 북로그 리스트 보여주기
+- 북로그 상세페이지 보여주기
+- 북로그 수정 / 삭제하기
 
-### `yarn build`
+## Routing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- public  -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- path: /
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - 배너
+  - 탭으로 이동
+    - 추천도서 리스트
+    - 내가 등록한 위시리스트
+    - 내가 기록한 북로그 리스트
 
-### `yarn eject`
+- path: /books/recommended
+- path: /books/recommended/:bookId
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - 추천도서 리스트
+  - 특정 추천도서 상세 페이지 : 구매가능 링크 이동?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- private: login한 유저 only -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- path: /books/wishlist
+- path: /books/wishlist/:bookId
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - 위시리스트 (+ 삭제 / 좋아요 해제 기능)
+  - 특정 위시리스트 도서 상세 페이지 (생략할 가능성도 있음)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- path: /booklog
+- path: /booklog/new
+  - 내가 기록한 북로그 리스트 (+수정,삭제 기능)
+  - 새로운 북로그 작성 페이지
