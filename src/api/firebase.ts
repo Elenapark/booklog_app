@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut,
+  User,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -12,13 +19,20 @@ const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 const auth = getAuth(app);
 
-export async function googleSignIn() {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      return user;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+export function googleSignIn() {
+  signInWithPopup(auth, provider).catch((error) => {
+    console.error(error);
+  });
+}
+
+export function googleSignOut() {
+  signOut(auth).catch((error) => {
+    console.error(error);
+  });
+}
+
+export function onUserStateChanged(callbackFunc: (user: User | null) => void) {
+  onAuthStateChanged(auth, (user) => {
+    callbackFunc(user);
+  });
 }

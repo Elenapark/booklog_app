@@ -11,6 +11,7 @@ import WishList from "./pages/WishList";
 import BookLogDetail from "./pages/BookLogDetail";
 import BookLog from "./pages/BookLog";
 import NewBookLog from "./pages/NewBookLog";
+import AuthProvider from "./context/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
