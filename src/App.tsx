@@ -5,7 +5,9 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <main className="max-w-4xl mx-auto">
+        <Outlet />
+      </main>
     </>
   );
 }

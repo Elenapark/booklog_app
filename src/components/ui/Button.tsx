@@ -13,7 +13,7 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      className="bg-indigo-500 px-1 rounded-sm text-white ml-2"
+      className="bg-neutral-200 p-1 rounded-sm ml-2 text-sm font-bold"
     >
       {text}
     </button>
