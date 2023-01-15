@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -18,6 +23,14 @@ export async function googleSignIn() {
       const user = result.user;
       return user;
     })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+export async function googleSignOut() {
+  return signOut(auth)
+    .then(() => null)
     .catch((error) => {
       console.error(error);
     });

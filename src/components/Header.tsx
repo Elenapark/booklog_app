@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import {
   FcReading,
   FcList,
@@ -8,13 +7,11 @@ import {
 } from "react-icons/fc";
 import CustomLink from "./CustomLink";
 import Button from "./ui/Button";
-import { googleSignIn } from "../api/firebase";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
-  const handleSignIn = async () => {
-    const result = await googleSignIn();
-    console.log(result);
-  };
+  const { user, signInWithGoogle, signOutWithGoogle } = useAuth();
+
   return (
     <header className="border-b">
       <div className="max-w-4xl mx-auto flex justify-between p-2">
@@ -28,19 +25,33 @@ export default function Header() {
             icon={<FcIdea />}
             text="추천도서"
           />
-          <CustomLink
-            goTo="/books/wishlist"
-            icon={<FcLike />}
-            text="위시리스트"
-          />
-          <CustomLink goTo="/booklog" icon={<FcList />} text="나의 북로그" />
-          <CustomLink
-            goTo="/booklog/new"
-            icon={<FcAddDatabase />}
-            text="북로그 작성하기"
-          />
+          {user ? (
+            <>
+              <CustomLink
+                goTo="/books/wishlist"
+                icon={<FcLike />}
+                text="위시리스트"
+              />
+              <CustomLink
+                goTo="/booklog"
+                icon={<FcList />}
+                text="나의 북로그"
+              />
+              <CustomLink
+                goTo="/booklog/new"
+                icon={<FcAddDatabase />}
+                text="북로그 작성하기"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {user ? (
+            <Button text="로그아웃" onClick={signOutWithGoogle} />
+          ) : (
+            <Button text="로그인" onClick={signInWithGoogle} />
+          )}
         </nav>
-        <Button text="로그인" onClick={handleSignIn} />
       </div>
     </header>
   );
