@@ -1,19 +1,41 @@
-import { createContext, useContext, useState, ReactNode } from "react";
-import useFirebaseAuth from "../hooks/useFirebaseAuth";
-import { IUser } from "../utils/converter/userInfoConverter";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
+import { onUserStateChanged } from "../api/firebase";
+import { googleSignIn, googleSignOut } from "../api/firebase";
+import { IUser, userInfoConverter } from "../utils/converter/userInfoConverter";
 
 interface IAuthContext {
   user: IUser | null | void;
-  signInWithGoogle: () => void;
-  signOutWithGoogle: () => void;
+  googleSignIn: () => void;
+  googleSignOut: () => void;
 }
 
 const AuthContext = createContext<IAuthContext | undefined>(undefined);
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const value = useFirebaseAuth();
+  const [user, setUser] = useState<IUser | null | void>(null);
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  useEffect(() => {
+    onUserStateChanged((user) => {
+      if (user) {
+        const result = userInfoConverter(user);
+        setUser(result);
+      } else {
+        setUser(user);
+      }
+    });
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user, googleSignIn, googleSignOut }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export const useAuth = () => {

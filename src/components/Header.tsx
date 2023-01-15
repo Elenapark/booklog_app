@@ -10,7 +10,7 @@ import Button from "./ui/Button";
 import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
-  const { user, signInWithGoogle, signOutWithGoogle } = useAuth();
+  const { user, googleSignIn, googleSignOut } = useAuth();
 
   return (
     <header className="border-b">
@@ -47,9 +47,9 @@ export default function Header() {
             <></>
           )}
           {user ? (
-            <Button text="로그아웃" onClick={signOutWithGoogle} />
+            <Button text="로그아웃" onClick={googleSignOut} />
           ) : (
-            <Button text="로그인" onClick={signInWithGoogle} />
+            <Button text="로그인" onClick={googleSignIn} />
           )}
         </nav>
       </div>
