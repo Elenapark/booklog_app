@@ -5,7 +5,7 @@ import { KcisaClient } from "../api/client/bookclient";
 const kcisa = new KcisaClient();
 const books = new Books(kcisa, {
   params: {
-    numOfRows: 20,
+    numOfRows: 12,
     pageNo: 1,
   },
 });

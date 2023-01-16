@@ -13,8 +13,8 @@ export default function CustomLink({ icon, goTo, text }: LinkProps) {
       to={goTo}
       className="flex justify-between items-center px-1 hover:bg-neutral-100 hover:rounded-sm"
     >
-      {icon}
-      {text && <span className="ml-1">{text}</span>}
+      <div className="text-2xl sm:text-xl">{icon}</div>
+      {text && <span className="hidden sm:block sm:ml-1">{text}</span>}
     </Link>
   );
 }
