@@ -1,19 +1,23 @@
+// recommended books
+
 export interface IBooks {
   header: {
     resultCode: string;
     resultMsg: string;
   };
-  body: {
-    items: {
-      item: IBookInfo[];
-    };
-    numOfRows: number;
-    pageNo: number;
-    totalCount: string;
-  };
+  body: IBookInfo;
 }
 
-interface IBookInfo {
+export interface IBookInfo {
+  items: {
+    item: IBookItemInfo[];
+  };
+  numOfRows: number;
+  pageNo: number;
+  totalCount: string;
+}
+
+export interface IBookItemInfo {
   title: string;
   alternativeTitle: string;
   creator: string;
