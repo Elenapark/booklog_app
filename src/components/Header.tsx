@@ -7,17 +7,21 @@ import {
 } from "react-icons/fc";
 import CustomLink from "./CustomLink";
 import Button from "./ui/Button";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
+  const navigate = useNavigate();
   const { user, googleSignIn, googleSignOut } = useAuth();
 
   return (
     <header className="border-b">
       <div className="max-w-4xl mx-auto flex justify-between p-2">
         <div className="flex items-center cursor-pointer">
-          <FcReading />
-          <span>북로그</span>
+          <FcReading className="text-4xl sm:text-2xl" />
+          <span onClick={() => navigate("/")} className="hidden sm:block">
+            북로그
+          </span>
         </div>
         <nav className="flex items-center gap-2">
           <CustomLink
