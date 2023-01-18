@@ -1,10 +1,12 @@
 import BookInfo from "../components/BookInfo";
 import Warning from "../components/Warning";
 import useWishlist from "../hooks/useWishlist";
+import { AiFillDelete } from "react-icons/ai";
 
 export default function WishList() {
   const {
     wishlistQuery: { isLoading, error, data: WishList },
+    removeWishList: { mutate: removeMutate },
   } = useWishlist();
 
   if (isLoading)
@@ -22,7 +24,22 @@ export default function WishList() {
       )}
       <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {WishList?.map((item) => {
-          return <BookInfo key={item.id} book={item} type="unclickable" />;
+          return (
+            <BookInfo
+              key={item.id}
+              book={item}
+              type="unclickable"
+              icon={
+                <div
+                  className="flex items-center cursor-pointer hover:bg-neutral-200 p-1 rounded-sm"
+                  onClick={() => removeMutate(item)}
+                >
+                  <AiFillDelete />
+                  <span className="text-xs">삭제</span>
+                </div>
+              }
+            />
+          );
         })}
       </ul>
     </section>

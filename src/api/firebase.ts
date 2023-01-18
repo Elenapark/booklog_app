@@ -7,7 +7,7 @@ import {
   signOut,
   User,
 } from "firebase/auth";
-import { get, getDatabase, ref, set } from "firebase/database";
+import { get, getDatabase, ref, remove, set } from "firebase/database";
 import { WishListType } from "../hooks/useWishlist";
 import { IBookItemInfo } from "../types";
 
@@ -69,4 +69,14 @@ export async function getWishList(uid: string): Promise<WishListType[]> {
     return Object.values(snapshot.val());
   }
   return [];
+}
+
+export async function removeFromWishList({
+  uid,
+  item,
+}: {
+  uid?: string;
+  item: WishListType;
+}) {
+  return remove(ref(database, `wishlist/${uid}/${item.id}`));
 }

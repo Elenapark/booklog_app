@@ -20,6 +20,9 @@ export default function Recommended() {
   return (
     <section className="my-10">
       <h1 className="text-center text-2xl my-10 font-bold">추천 도서</h1>
+      {Books?.length === 0 && (
+        <Warning text="추천 도서 리스트를 준비중입니다." />
+      )}
       <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {Books?.map((book: IBookItemInfo, idx: number) => {
           return (

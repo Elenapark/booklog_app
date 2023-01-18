@@ -9,10 +9,14 @@ import CustomLink from "./CustomLink";
 import Button from "./ui/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import useWishlist from "../hooks/useWishlist";
 
 export default function Header() {
   const navigate = useNavigate();
   const { user, googleSignIn, googleSignOut } = useAuth();
+  const {
+    wishlistQuery: { data: Wishlist },
+  } = useWishlist();
 
   return (
     <header className="border-b">
@@ -35,6 +39,8 @@ export default function Header() {
                 goTo="/books/wishlist"
                 icon={<FcLike />}
                 text="위시리스트"
+                type="needStatus"
+                data={Wishlist}
               />
               <CustomLink
                 goTo="/booklog"
