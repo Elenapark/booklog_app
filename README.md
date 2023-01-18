@@ -39,7 +39,7 @@
     - 내가 기록한 북로그 리스트
 
 - path: /books/recommended
-- path: /books/recommended/:bookId
+- path: /books/recommended/:bookTitle
 
   - 추천도서 리스트
   - 특정 추천도서 상세 페이지 : 구매가능 링크 이동?
@@ -47,10 +47,8 @@
 <!-- private: login한 유저 only -->
 
 - path: /books/wishlist
-- path: /books/wishlist/:bookId
 
   - 위시리스트 (+ 삭제 / 좋아요 해제 기능)
-  - 특정 위시리스트 도서 상세 페이지 (생략할 가능성도 있음)
 
 - path: /booklog
 - path: /booklog/:logId
