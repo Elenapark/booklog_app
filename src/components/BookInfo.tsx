@@ -1,15 +1,24 @@
+import { WishListType } from "../hooks/useWishlist";
 import { IBookItemInfo } from "../types";
-import { useNavigate } from "react-router-dom";
+import cx from "classnames";
 
-export default function BookInfo({ book }: { book: IBookItemInfo }) {
-  const navigate = useNavigate();
+interface IBookInfo {
+  book: IBookItemInfo | WishListType;
+  onClick?: () => void;
+  type?: "clickable" | "unclickable";
+}
 
+export default function BookInfo({
+  book,
+  onClick,
+  type = "clickable",
+}: IBookInfo) {
   return (
     <li
-      className="w-full shadow-lg rounded-md cursor-pointer relative "
-      onClick={() =>
-        navigate(`/books/recommended/${book.title}`, { state: book })
-      }
+      className={`w-full shadow-lg rounded-md ${cx(
+        type === "clickable" && { "cursor-pointer": true }
+      )}`}
+      onClick={onClick}
     >
       <div className="w-full h-[300px] border-b">
         <img

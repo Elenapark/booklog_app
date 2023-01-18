@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
             ["@types/uuid", "npm:9.0.0"],\
             ["axios", "npm:1.2.2"],\
+            ["classnames", "npm:2.3.2"],\
             ["crypto-js", "npm:4.1.1"],\
             ["eslint-config-prettier", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:8.6.0"],\
             ["eslint-config-react-app", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:7.0.1"],\
@@ -7443,6 +7444,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
             ["@types/uuid", "npm:9.0.0"],\
             ["axios", "npm:1.2.2"],\
+            ["classnames", "npm:2.3.2"],\
             ["crypto-js", "npm:4.1.1"],\
             ["eslint-config-prettier", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:8.6.0"],\
             ["eslint-config-react-app", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:7.0.1"],\
@@ -7782,6 +7784,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cjs-module-lexer-npm-1.2.2-473ce063ea-977f3f042b.zip/node_modules/cjs-module-lexer/",\
           "packageDependencies": [\
             ["cjs-module-lexer", "npm:1.2.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["classnames", [\
+        ["npm:2.3.2", {\
+          "packageLocation": "./.yarn/cache/classnames-npm-2.3.2-d2fdae468d-2c62199789.zip/node_modules/classnames/",\
+          "packageDependencies": [\
+            ["classnames", "npm:2.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\

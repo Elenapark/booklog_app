@@ -4691,6 +4691,7 @@ __metadata:
     "@types/testing-library__jest-dom": ^5
     "@types/uuid": ^9
     axios: ^1.2.2
+    classnames: ^2.3.2
     crypto-js: ^4.1.1
     eslint-config-prettier: ^8.6.0
     eslint-config-react-app: ^7.0.1
@@ -4996,6 +4997,13 @@ __metadata:
   version: 1.2.2
   resolution: "cjs-module-lexer@npm:1.2.2"
   checksum: 977f3f042bd4f08e368c890d91eecfbc4f91da0bc009a3c557bc4dfbf32022ad1141244ac1178d44de70fc9f3dea7add7cd9a658a34b9fae98a55d8f92331ce5
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "classnames@npm:2.3.2"
+  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
   languageName: node
   linkType: hard
 
