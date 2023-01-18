@@ -7,7 +7,9 @@ import {
   signOut,
   User,
 } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
+import { get, getDatabase, ref, set } from "firebase/database";
+import { WishListType } from "../hooks/useWishlist";
+import { IBookItemInfo } from "../types";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -47,12 +49,24 @@ export function onUserStateChanged(callbackFunc: (user: User | null) => void) {
  * Firebase Realtime Database - wishlist
  */
 
-export interface IWishlistProps {
-  id: string;
-  title: string;
-  imageUrl: string;
+export async function saveToWishList({
+  uid,
+  item,
+}: {
+  uid?: string;
+  item: WishListType;
+}) {
+  if (!uid) {
+    throw Error("uid가 없습니다!");
+  }
+
+  return await set(ref(database, `wishlist/${uid}/${item.id}`), item);
 }
 
-export function saveToWishList(uid: string, item: IWishlistProps) {
-  return set(ref(database, `wishlist/${uid}/${item.id}`), item);
+export async function getWishList(uid: string): Promise<WishListType[]> {
+  const snapshot = await get(ref(database, `wishlist/${uid}`));
+  if (snapshot.exists()) {
+    return Object.values(snapshot.val());
+  }
+  return [];
 }

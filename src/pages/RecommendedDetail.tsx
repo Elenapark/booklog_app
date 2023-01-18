@@ -36,7 +36,7 @@ export default function RecommendedDetail() {
                 {
                   id: state.id,
                   title: state.title,
-                  imageUrl: state.referenceIdentifier,
+                  referenceIdentifier: state.referenceIdentifier,
                 },
                 {
                   onSuccess: () => {
