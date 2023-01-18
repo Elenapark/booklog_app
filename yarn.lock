@@ -1799,7 +1799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/app@npm:0.9.0":
+"@firebase/app@npm:0.9.0, @firebase/app@npm:^0.9.0":
   version: 0.9.0
   resolution: "@firebase/app@npm:0.9.0"
   dependencies:
@@ -3271,6 +3271,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/crypto-js@npm:^4":
+  version: 4.1.1
+  resolution: "@types/crypto-js@npm:4.1.1"
+  checksum: ea3d6a67b69f88baeb6af96004395903d2367a41bd5cd86306da23a44dd96589749495da50974a9b01bb5163c500764c8a33706831eade036bddae016417e3ea
+  languageName: node
+  linkType: hard
+
 "@types/eslint-scope@npm:^3.7.3":
   version: 3.7.4
   resolution: "@types/eslint-scope@npm:3.7.4"
@@ -3587,6 +3594,13 @@ __metadata:
   version: 2.0.2
   resolution: "@types/trusted-types@npm:2.0.2"
   checksum: 3371eef5f1c50e1c3c07a127c1207b262ba65b83dd167a1c460fc1b135a3fb0c97b9f508efebd383f239cc5dd5b7169093686a692a501fde9c3f7208657d9b0d
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^9":
+  version: 9.0.0
+  resolution: "@types/uuid@npm:9.0.0"
+  checksum: 59ae56d9547c8758588659da2a2b4c97cce79c2aae1798c892bb29452ef08e87859dea2ec3a66bfa88d0d2153147520be2b1893be920f9f0bc9c53a3207ea6aa
   languageName: node
   linkType: hard
 
@@ -4662,18 +4676,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "book_log_app@workspace:."
   dependencies:
+    "@firebase/app": ^0.9.0
     "@headlessui/react": ^1.7.7
     "@heroicons/react": ^2.0.13
     "@tanstack/react-query": ^4.22.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.0.0
     "@testing-library/user-event": ^13.2.1
+    "@types/crypto-js": ^4
     "@types/jest": ^27.0.1
     "@types/node": ^16.7.13
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
     "@types/testing-library__jest-dom": ^5
+    "@types/uuid": ^9
     axios: ^1.2.2
+    classnames: ^2.3.2
+    crypto-js: ^4.1.1
     eslint-config-prettier: ^8.6.0
     eslint-config-react-app: ^7.0.1
     firebase: ^9.15.0
@@ -4684,6 +4703,7 @@ __metadata:
     react-scripts: 5.0.1
     tailwindcss: ^3.2.4
     typescript: ^4.4.2
+    uuid: ^9.0.0
     web-vitals: ^2.1.0
   languageName: unknown
   linkType: soft
@@ -4977,6 +4997,13 @@ __metadata:
   version: 1.2.2
   resolution: "cjs-module-lexer@npm:1.2.2"
   checksum: 977f3f042bd4f08e368c890d91eecfbc4f91da0bc009a3c557bc4dfbf32022ad1141244ac1178d44de70fc9f3dea7add7cd9a658a34b9fae98a55d8f92331ce5
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "classnames@npm:2.3.2"
+  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
   languageName: node
   linkType: hard
 
@@ -5298,6 +5325,13 @@ __metadata:
     shebang-command: ^2.0.0
     which: ^2.0.1
   checksum: 671cc7c7288c3a8406f3c69a3ae2fc85555c04169e9d611def9a675635472614f1c0ed0ef80955d5b6d4e724f6ced67f0ad1bb006c2ea643488fcfef994d7f52
+  languageName: node
+  linkType: hard
+
+"crypto-js@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "crypto-js@npm:4.1.1"
+  checksum: b3747c12ee3a7632fab3b3e171ea50f78b182545f0714f6d3e7e2858385f0f4101a15f2517e033802ce9d12ba50a391575ff4638c9de3dd9b2c4bc47768d5425
   languageName: node
   linkType: hard
 
@@ -13257,6 +13291,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "uuid@npm:9.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 8dd2c83c43ddc7e1c71e36b60aea40030a6505139af6bee0f382ebcd1a56f6cd3028f7f06ffb07f8cf6ced320b76aea275284b224b002b289f89fe89c389b028
   languageName: node
   linkType: hard
 

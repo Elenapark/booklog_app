@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <Recommended />,
       },
       {
-        path: "/books/recommended/:bookId",
+        path: "/books/recommended/:bookTitle",
         element: <RecommendedDetail />,
       },
       {
