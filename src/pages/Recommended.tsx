@@ -16,7 +16,7 @@ export default function Recommended() {
     <main className="my-10">
       <h1 className="text-center text-2xl my-10 font-bold">추천 도서</h1>
       <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 ">
-        {Books?.items?.item?.map((book: IBookItemInfo, idx: number) => {
+        {Books?.map((book: IBookItemInfo, idx: number) => {
           return <BookInfo key={book.regDate + idx} book={book} />;
         })}
       </ul>

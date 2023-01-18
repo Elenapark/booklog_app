@@ -18,6 +18,7 @@ export interface IBookInfo {
 }
 
 export interface IBookItemInfo {
+  id: string;
   title: string;
   alternativeTitle: string;
   creator: string;

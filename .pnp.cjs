@@ -28,18 +28,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@firebase/app", "npm:0.9.0"],\
             ["@headlessui/react", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:1.7.7"],\
             ["@heroicons/react", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:2.0.13"],\
             ["@tanstack/react-query", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:4.22.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:13.5.0"],\
+            ["@types/crypto-js", "npm:4.1.1"],\
             ["@types/jest", "npm:27.5.2"],\
             ["@types/node", "npm:16.18.11"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
+            ["@types/uuid", "npm:9.0.0"],\
             ["axios", "npm:1.2.2"],\
+            ["crypto-js", "npm:4.1.1"],\
             ["eslint-config-prettier", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:8.6.0"],\
             ["eslint-config-react-app", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:7.0.1"],\
             ["firebase", "npm:9.15.0"],\
@@ -50,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-scripts", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:5.0.1"],\
             ["tailwindcss", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:3.2.4"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
+            ["uuid", "npm:9.0.0"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -5573,6 +5578,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/crypto-js", [\
+        ["npm:4.1.1", {\
+          "packageLocation": "./.yarn/cache/@types-crypto-js-npm-4.1.1-1c4ce3312a-ea3d6a67b6.zip/node_modules/@types/crypto-js/",\
+          "packageDependencies": [\
+            ["@types/crypto-js", "npm:4.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/eslint", [\
         ["npm:8.4.10", {\
           "packageLocation": "./.yarn/cache/@types-eslint-npm-8.4.10-9df5f4bc78-21e009ed9e.zip/node_modules/@types/eslint/",\
@@ -5941,6 +5955,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-trusted-types-npm-2.0.2-035cb17c5e-3371eef5f1.zip/node_modules/@types/trusted-types/",\
           "packageDependencies": [\
             ["@types/trusted-types", "npm:2.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/uuid", [\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-uuid-npm-9.0.0-979023c16f-59ae56d954.zip/node_modules/@types/uuid/",\
+          "packageDependencies": [\
+            ["@types/uuid", "npm:9.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7405,18 +7428,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["book_log_app", "workspace:."],\
+            ["@firebase/app", "npm:0.9.0"],\
             ["@headlessui/react", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:1.7.7"],\
             ["@heroicons/react", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:2.0.13"],\
             ["@tanstack/react-query", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:4.22.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:13.5.0"],\
+            ["@types/crypto-js", "npm:4.1.1"],\
             ["@types/jest", "npm:27.5.2"],\
             ["@types/node", "npm:16.18.11"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
+            ["@types/uuid", "npm:9.0.0"],\
             ["axios", "npm:1.2.2"],\
+            ["crypto-js", "npm:4.1.1"],\
             ["eslint-config-prettier", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:8.6.0"],\
             ["eslint-config-react-app", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:7.0.1"],\
             ["firebase", "npm:9.15.0"],\
@@ -7427,6 +7454,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-scripts", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:5.0.1"],\
             ["tailwindcss", "virtual:99a6eb8da3402b4bc466a9dd43cbaa5392ba348c76373d7bca8da967989ea1f3dd5f841c8bc29763e890eebe8df5a6363bb85e766137eb32e12a8f826fe696f0#npm:3.2.4"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
+            ["uuid", "npm:9.0.0"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -8128,6 +8156,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["path-key", "npm:3.1.1"],\
             ["shebang-command", "npm:2.0.0"],\
             ["which", "npm:2.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["crypto-js", [\
+        ["npm:4.1.1", {\
+          "packageLocation": "./.yarn/cache/crypto-js-npm-4.1.1-38a3b8c19d-b3747c12ee.zip/node_modules/crypto-js/",\
+          "packageDependencies": [\
+            ["crypto-js", "npm:4.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -18276,6 +18313,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",\
           "packageDependencies": [\
             ["uuid", "npm:8.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/uuid-npm-9.0.0-46c41e3e43-8dd2c83c43.zip/node_modules/uuid/",\
+          "packageDependencies": [\
+            ["uuid", "npm:9.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

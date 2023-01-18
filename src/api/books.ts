@@ -1,6 +1,7 @@
-import { IBookInfo } from "./../types/books.types";
+import { IBookInfo, IBookItemInfo } from "./../types/books.types";
 import { IKcisaProps, KcisaClient } from "./client/bookclient";
 import { AxiosResponse } from "axios";
+import { encrypt } from "../utils/helper/cryptoId";
 
 type Params = IKcisaProps;
 
@@ -20,7 +21,12 @@ export default class Books implements BooksController {
   async getList() {
     return this.apiClient
       .getBooksList(this.params)
-      .then((res) => res?.data?.response?.body)
+      .then((res) =>
+        res?.data?.response?.body.items.item.map((el: IBookItemInfo) => ({
+          ...el,
+          id: encrypt(el.title),
+        }))
+      )
       .catch((err) => console.error(err));
   }
 }

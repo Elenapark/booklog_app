@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../components/ui/Button";
+import useWishlist from "../hooks/useWishlist";
 import { IBookItemInfo } from "../types";
 export default function RecommendedDetail() {
+  const {
+    wishlistMutation: { mutate, isLoading, error },
+  } = useWishlist();
+  const [success, setSuccess] = useState<string | null>("");
   const { state }: { state: IBookItemInfo } = useLocation();
-  console.log(state);
 
   return (
     <main className="p-2">
@@ -20,11 +25,29 @@ export default function RecommendedDetail() {
           <h1 className="text-2xl font-bold">{state.title}</h1>
           <h3>저자 : {state.rights}</h3>
           <h4 className="mb-10">쪽수 : {state.extent}</h4>
+          {success && (
+            <p className={`${success ? "block" : "hidden"}`}>{success}</p>
+          )}
           <Button
-            text="위시리스트에 담기"
-            onClick={() => {
-              console.log("Clicked");
-            }}
+            text={isLoading ? "위시리스트에 담는중 ..." : "위시리스트에 담기"}
+            disabled={isLoading}
+            onClick={() =>
+              mutate(
+                {
+                  id: state.id,
+                  title: state.title,
+                  imageUrl: state.referenceIdentifier,
+                },
+                {
+                  onSuccess: () => {
+                    setSuccess("✅ 위시리스트에 아이템을 담았습니다.");
+                    setTimeout(() => {
+                      setSuccess(null);
+                    }, 3000);
+                  },
+                }
+              )
+            }
           />
         </aside>
       </section>
