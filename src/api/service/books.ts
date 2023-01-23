@@ -1,19 +1,20 @@
-import { IBookInfo, IBookItemInfo } from "./../types/books.types";
-import { IKcisaProps, KcisaClient } from "./client/bookclient";
+import { IKakaoSearchProps } from "./../client/searchclient";
+import { IBookInfo, IBookItemInfo } from "../../types/books.types";
+import { IKcisaProps } from "../client/bookclient";
 import { AxiosResponse } from "axios";
-import { encrypt } from "../utils/helper/cryptoId";
+import { encrypt } from "../../utils/helper/cryptoId";
 
-type Params = IKcisaProps;
+type Params = IKcisaProps | IKakaoSearchProps;
 
 interface BooksController {
   getList: () => Promise<AxiosResponse<IBookInfo | any>>;
 }
 
 export default class Books implements BooksController {
-  apiClient: KcisaClient;
-  params: Params;
+  apiClient: InstanceType<any>;
+  params?: Params;
 
-  constructor(apiClient: KcisaClient, params: Params) {
+  constructor(apiClient: InstanceType<any>, params?: Params) {
     this.apiClient = apiClient;
     this.params = params;
   }
@@ -21,12 +22,12 @@ export default class Books implements BooksController {
   async getList() {
     return this.apiClient
       .getBooksList(this.params)
-      .then((res) =>
+      .then((res: AxiosResponse<any>) =>
         res?.data?.response?.body.items.item.map((el: IBookItemInfo) => ({
           ...el,
           id: encrypt(el.title),
         }))
       )
-      .catch((err) => console.error(err));
+      .catch(console.error);
   }
 }

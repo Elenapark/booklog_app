@@ -20,11 +20,24 @@
 - 위시리스트 삭제하기
 
 - 내 북로그 작성하기
-  - 도서 검색 API : https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book
-  - 이미지 업로드해서 직접 도서 등록하기?
+
+  - 도서 검색 API 이용해서 검색하기 : https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book
+
+    - 옵션
+      - 읽은 책
+      - 읽고 있는 책
+    - 독서 기간
+      - 시작일자
+      - 종료일자 (읽은 책)
+    - 평점 부여?
+    - 리뷰 작성 기능 (with 텍스트 에디터)
+
+  - 직접 도서 등록하기 (이미지, 제목, 지은이, 출판사, ISBN, 페이지 수)
+
 - 내 북로그 리스트 보여주기
+  - 북로그 삭제 기능
 - 북로그 상세페이지 보여주기
-- 북로그 수정 / 삭제하기
+  - 리뷰 추가/수정/삭제 기능
 
 ## Routing
 
