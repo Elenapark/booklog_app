@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="max-w-4xl mx-auto">
+      <main className="max-w-4xl mx-auto h-[100vh]">
         <BookListProvider>
           <Outlet />
         </BookListProvider>

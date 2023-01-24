@@ -13,6 +13,7 @@ import BookLogDetail from "./pages/BookLogDetail";
 import BookLog from "./pages/BookLog";
 import NewBookLog from "./pages/NewBookLog";
 import AuthProvider from "./context/AuthContext";
+import NewBookLogForm from "./pages/NewBookLogForm";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/booklog/new",
         element: <NewBookLog />,
+      },
+      {
+        path: "/booklog/new/:logId",
+        element: <NewBookLogForm />,
       },
     ],
   },
