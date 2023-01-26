@@ -16,7 +16,7 @@ export default function ResultItem({ data }: { data: ISearchBookItemInfo }) {
       <div className="ml-2 flex flex-col flex-1">
         <h1 className="font-bold text-xl">{data.title}</h1>
         <div className="text-sm text-zinc-600">
-          {data.authors.join(", ")} /{" "}
+          {data.authors.join(", ")} /
           <span className="text-xs">{data.publisher}</span>
         </div>
         <p className="my-4">{data.contents.slice(0, 100)}..</p>

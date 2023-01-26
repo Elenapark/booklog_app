@@ -7,7 +7,7 @@ import useDebounce from "../hooks/useDebounce";
 
 export default function NewBookLog() {
   const { searchBooks, keyword } = useBookList();
-  const debouncedKeyword = useDebounce(keyword, 500);
+  const debouncedKeyword = useDebounce(keyword, 800);
 
   const { error, data } = useQuery(
     ["search", debouncedKeyword],
@@ -20,6 +20,7 @@ export default function NewBookLog() {
     {
       refetchOnWindowFocus: false,
       enabled: !!debouncedKeyword,
+      staleTime: Infinity,
     }
   );
 

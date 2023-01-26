@@ -15,7 +15,7 @@ export default function Button({
     <button
       type={type}
       onClick={onClick}
-      className="bg-neutral-200 p-1 rounded-sm text-sm font-bold"
+      className="bg-neutral-200 p-1 rounded-sm text-sm font-bold min-w-[20px]"
       disabled={disabled}
     >
       {text}
