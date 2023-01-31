@@ -15,6 +15,7 @@ import NewBookLog from "./pages/NewBookLog";
 import AuthProvider from "./context/AuthContext";
 import NewBookLogForm from "./pages/NewBookLogForm";
 import EditBookLogForm from "./pages/EditBookLogForm";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,15 +34,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/books/wishlist",
-        element: <WishList />,
+        element: (
+          <ProtectedRoute>
+            <WishList />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/booklog",
-        element: <BookLog />,
+        element: (
+          <ProtectedRoute>
+            <BookLog />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/booklog/:logId",
-        element: <BookLogDetail />,
+        element: (
+          <ProtectedRoute>
+            <BookLogDetail />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/booklog/new",
@@ -49,11 +62,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/booklog/new/:logId",
-        element: <NewBookLogForm />,
+        element: (
+          <ProtectedRoute>
+            <NewBookLogForm />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/booklog/edit/:logId",
-        element: <EditBookLogForm />,
+        element: (
+          <ProtectedRoute>
+            <EditBookLogForm />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

@@ -45,7 +45,6 @@ export default function ResultItem({
             }
             onClick={goTo}
           />
-          {/* {type === "booklogList" && <Button text="삭제" />} */}
           {icon}
         </nav>
       </div>

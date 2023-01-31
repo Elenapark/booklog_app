@@ -47,15 +47,15 @@ export default function Header() {
                 icon={<FcList />}
                 text="나의 북로그"
               />
-              <CustomLink
-                goTo="/booklog/new"
-                icon={<FcAddDatabase />}
-                text="북로그 작성하기"
-              />
             </>
           ) : (
             <></>
           )}
+          <CustomLink
+            goTo="/booklog/new"
+            icon={<FcAddDatabase />}
+            text="북로그 작성하기"
+          />
           {user ? (
             <Button text="로그아웃" onClick={googleSignOut} />
           ) : (

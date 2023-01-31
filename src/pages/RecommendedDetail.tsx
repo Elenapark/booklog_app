@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button";
+import { useAuth } from "../context/AuthContext";
 import useWishlist from "../hooks/useWishlist";
 import { IBookItemInfo } from "../types";
 export default function RecommendedDetail() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const {
     wishlistMutation: { mutate, isLoading, error },
   } = useWishlist();
@@ -44,6 +47,12 @@ export default function RecommendedDetail() {
                     setTimeout(() => {
                       setSuccess(null);
                     }, 3000);
+                  },
+                  onError: (err) => {
+                    if (!user) {
+                      alert("로그인이 필요합니다.");
+                      navigate("/");
+                    }
                   },
                 }
               )

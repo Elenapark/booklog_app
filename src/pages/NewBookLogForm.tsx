@@ -15,7 +15,6 @@ export default function NewBookLogForm() {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
-  const [success, setSuccess] = useState<string | null>("");
 
   const handleKeyCommand = (command: string, editorState: EditorState) => {
     const newState = RichUtils.handleKeyCommand(editorState, command);
@@ -39,13 +38,7 @@ export default function NewBookLogForm() {
           content: contentState,
         },
         {
-          onSuccess: () => {
-            setSuccess("북로그가 성공적으로 저장되었습니다!");
-            setTimeout(() => {
-              setSuccess(null);
-              navigate("/booklog");
-            }, 4000);
-          },
+          onSuccess: () => alert("북로그가 성공적으로 저장되었습니다."),
         }
       );
     } catch (err) {
@@ -84,7 +77,7 @@ export default function NewBookLogForm() {
         </aside>
       </section>
       <hr className="my-10" />
-      <section className="flex flex-col">
+      <section className="flex flex-col relative">
         <h5 className="text-xl font-bold mb-4">
           기록을 통해 더욱 풍부한 독서활동을 경험해보세요 📚
         </h5>
@@ -94,14 +87,16 @@ export default function NewBookLogForm() {
             onEditorStateChange={setEditorState}
             handleKeyCommand={handleKeyCommand}
           />
-          <Button
-            disabled={isLoading}
-            type="submit"
-            text={isLoading ? "북로그 저장중..." : "내 북로그 저장하기"}
-          />
+          <div className="absolute top-1 right-1">
+            <Button
+              disabled={isLoading}
+              type="submit"
+              text={isLoading ? "북로그 저장중..." : "내 북로그 저장하기"}
+            />
+          </div>
         </form>
       </section>
-      <>{success && <p>{success}</p>}</>
+
       <>{error && <p>북로그 저장에 문제가 생겼습니다.</p>}</>
     </section>
   );
