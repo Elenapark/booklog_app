@@ -1,13 +1,12 @@
 import { FormEvent, useState } from "react";
 import { EditorState, RichUtils, ContentState } from "draft-js";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import TextEditor from "../components/editor/TextEditor";
 import Button from "../components/ui/Button";
 import { ISearchBookItemInfo } from "../types";
 import useBookLog from "../hooks/useBookLog";
 
 export default function NewBookLogForm() {
-  const navigate = useNavigate();
   const {
     booklogMutation: { mutate, isLoading, error },
   } = useBookLog();
@@ -29,7 +28,6 @@ export default function NewBookLogForm() {
   const onSave = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const contentState: ContentState = editorState.getCurrentContent();
-    console.log(contentState);
 
     try {
       mutate(
@@ -71,6 +69,7 @@ export default function NewBookLogForm() {
             href={state.url}
             target="_blank"
             className="cursor-pointer text-indigo-600 font-bold"
+            rel="noreferrer"
           >
             책 더 알아보기
           </a>

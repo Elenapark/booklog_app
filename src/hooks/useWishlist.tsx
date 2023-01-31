@@ -1,5 +1,4 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { isHtmlElement } from "react-router-dom/dist/dom";
 import {
   getWishList,
   removeFromWishList,

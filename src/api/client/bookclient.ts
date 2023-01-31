@@ -1,7 +1,6 @@
 import { IBooks } from "./../../types/books.types";
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 
-const RECOMMENDED = `/meta4/getKCPG0506`;
 const RECOMMENDED_FOR_UNIVS = "/meta13/getKPEF0103";
 
 export interface IKcisaProps {

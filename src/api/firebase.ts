@@ -1,4 +1,4 @@
-import { convertToRaw, RawDraftContentState } from "draft-js";
+import { convertToRaw } from "draft-js";
 import { ISearchBookItemInfo } from "./../types/books.types";
 import { initializeApp } from "firebase/app";
 import {
@@ -12,8 +12,6 @@ import {
 import { get, getDatabase, ref, remove, set } from "firebase/database";
 import { ISaveBookLogProps } from "../hooks/useBookLog";
 import { WishListType } from "../hooks/useWishlist";
-import { IBookItemInfo } from "../types";
-import { encrypt } from "../utils/helper/cryptoId";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,

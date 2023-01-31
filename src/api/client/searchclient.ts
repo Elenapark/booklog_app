@@ -1,6 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { ISearchBooks } from "../../types";
-import { BookClient } from "./bookclient";
 
 export interface IKakaoSearchProps {
   params: {

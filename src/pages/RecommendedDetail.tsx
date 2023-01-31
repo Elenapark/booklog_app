@@ -28,9 +28,16 @@ export default function RecommendedDetail() {
           <h1 className="text-2xl font-bold">{state.title}</h1>
           <h3>저자 : {state.rights}</h3>
           <h4 className="mb-10">쪽수 : {state.extent}</h4>
-          {success && (
-            <p className={`${success ? "block" : "hidden"}`}>{success}</p>
-          )}
+          <>
+            {success && (
+              <p className={`${success ? "block" : "hidden"}`}>{success}</p>
+            )}
+            {error && (
+              <p className={`${success ? "block" : "hidden"}`}>
+                에러가 발생했습니다.
+              </p>
+            )}
+          </>
           <Button
             text={isLoading ? "위시리스트에 담는중 ..." : "위시리스트에 담기"}
             disabled={isLoading}

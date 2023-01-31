@@ -34,6 +34,7 @@ export default function ResultItem({
             href={data.url}
             target="_blank"
             className=" cursor-pointer mr-2 hover:text-indigo-600"
+            rel="noreferrer"
           >
             책 더 알아보기
           </a>

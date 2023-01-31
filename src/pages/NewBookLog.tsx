@@ -29,7 +29,7 @@ export default function NewBookLog() {
     return () => {
       setKeyword("");
     };
-  }, []);
+  }, [setKeyword]);
   return (
     <>
       <h1 className="text-center text-2xl my-10 font-bold">도서 검색하기</h1>

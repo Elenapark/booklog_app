@@ -2,7 +2,6 @@ import useBookLog from "../hooks/useBookLog";
 import { IGetBookLogProps } from "../api/firebase";
 import ResultItem from "../components/ResultItem";
 import { useNavigate } from "react-router-dom";
-import { AiFillDelete } from "react-icons/ai";
 import Button from "../components/ui/Button";
 import Warning from "../components/Warning";
 

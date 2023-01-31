@@ -82,6 +82,7 @@ export default function EditBookLogForm() {
             href={info.url}
             target="_blank"
             className="cursor-pointer text-indigo-600 font-bold"
+            rel="noreferrer"
           >
             책 더 알아보기
           </a>
