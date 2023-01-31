@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { ISearchBookItemInfo } from "../types";
 import Button from "./ui/Button";
 
@@ -5,10 +6,12 @@ export default function ResultItem({
   data,
   type = "searchResult",
   goTo,
+  icon,
 }: {
   data: ISearchBookItemInfo;
   type?: "booklogList" | "searchResult";
   goTo: () => void;
+  icon?: ReactNode;
 }) {
   return (
     <li className="p-2 border mb-4 rounded-md shadow-lg flex flex-1 justify-around items-center min-h-[192px]">
@@ -42,6 +45,8 @@ export default function ResultItem({
             }
             onClick={goTo}
           />
+          {/* {type === "booklogList" && <Button text="삭제" />} */}
+          {icon}
         </nav>
       </div>
     </li>

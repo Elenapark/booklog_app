@@ -119,3 +119,13 @@ export async function getBooklog(uid: string): Promise<IGetBookLogProps[]> {
   }
   return [];
 }
+
+export async function removeBooklog({
+  uid,
+  item,
+}: {
+  uid?: string;
+  item: ISaveBookLogProps;
+}) {
+  return remove(ref(database, `booklog/${uid}/${item.info.id}`));
+}
