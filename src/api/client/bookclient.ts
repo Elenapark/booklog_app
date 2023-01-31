@@ -11,7 +11,7 @@ export interface IKcisaProps {
   };
 }
 
-interface BookClient {
+export interface BookClient {
   getBooksList: (params: IKcisaProps) => Promise<AxiosResponse<IBooks>>;
 }
 

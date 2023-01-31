@@ -13,6 +13,8 @@ import BookLogDetail from "./pages/BookLogDetail";
 import BookLog from "./pages/BookLog";
 import NewBookLog from "./pages/NewBookLog";
 import AuthProvider from "./context/AuthContext";
+import NewBookLogForm from "./pages/NewBookLogForm";
+import EditBookLogForm from "./pages/EditBookLogForm";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
         path: "/booklog/new",
         element: <NewBookLog />,
       },
+      {
+        path: "/booklog/new/:logId",
+        element: <NewBookLogForm />,
+      },
+      {
+        path: "/booklog/edit/:logId",
+        element: <EditBookLogForm />,
+      },
     ],
   },
 ]);
@@ -55,11 +65,11 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
     </QueryClientProvider>
-  </React.StrictMode>
+  </>
 );
