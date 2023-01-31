@@ -26,6 +26,7 @@ export default function NewBookLog() {
 
   return (
     <>
+      <h1 className="text-center text-2xl my-10 font-bold">도서 검색하기</h1>
       <SearchInput placeHolder="책 제목, 지은이 또는 출판사 등 관련 정보를 검색해보세요!" />
       {error && <Warning text="검색 결과를 불러오는데 실패했습니다." />}
       {!data && <Warning text="📚 읽는 중이거나 읽은 책을 검색해보세요! 📚" />}

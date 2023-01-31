@@ -1,9 +1,15 @@
-import { useNavigate } from "react-router-dom";
 import { ISearchBookItemInfo } from "../types";
 import Button from "./ui/Button";
 
-export default function ResultItem({ data }: { data: ISearchBookItemInfo }) {
-  const navigate = useNavigate();
+export default function ResultItem({
+  data,
+  type = "searchResult",
+  goTo,
+}: {
+  data: ISearchBookItemInfo;
+  type?: "booklogList" | "searchResult";
+  goTo: () => void;
+}) {
   return (
     <li className="p-2 border mb-4 rounded-md shadow-lg flex flex-1 justify-around items-center min-h-[192px]">
       <div className="w-[120px]">
@@ -29,8 +35,12 @@ export default function ResultItem({ data }: { data: ISearchBookItemInfo }) {
             책 더 알아보기
           </a>
           <Button
-            text="내 북로그에 추가하기"
-            onClick={() => navigate(data.title, { state: data })}
+            text={
+              type === "searchResult"
+                ? "내 북로그에 추가하기"
+                : "내 북로그 보기"
+            }
+            onClick={goTo}
           />
         </nav>
       </div>
