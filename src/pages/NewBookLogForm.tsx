@@ -1,15 +1,59 @@
-import { useLocation } from "react-router-dom";
+import { FormEvent, useState } from "react";
+import { EditorState, RichUtils, ContentState } from "draft-js";
+import { useLocation, useNavigate } from "react-router-dom";
 import TextEditor from "../components/editor/TextEditor";
-
 import Button from "../components/ui/Button";
 import { ISearchBookItemInfo } from "../types";
+import useBookLog from "../hooks/useBookLog";
 
 export default function NewBookLogForm() {
+  const navigate = useNavigate();
+  const {
+    booklogMutation: { mutate, isLoading, error },
+  } = useBookLog();
   const { state }: { state: ISearchBookItemInfo } = useLocation();
-  console.log(state);
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+  const [success, setSuccess] = useState<string | null>("");
 
+  const handleKeyCommand = (command: string, editorState: EditorState) => {
+    const newState = RichUtils.handleKeyCommand(editorState, command);
+
+    if (newState) {
+      setEditorState(newState);
+      return "handled";
+    }
+    return "not-handled";
+  };
+
+  const onSave = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const contentState: ContentState = editorState.getCurrentContent();
+    console.log(contentState);
+
+    try {
+      mutate(
+        {
+          info: state,
+          content: contentState,
+        },
+        {
+          onSuccess: () => {
+            setSuccess("북로그가 성공적으로 저장되었습니다!");
+            setTimeout(() => {
+              setSuccess(null);
+              navigate("/booklog");
+            }, 4000);
+          },
+        }
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
-    <main className="p-2">
+    <section className="p-2">
       <p className="mb-10 text-zinc-500">{`> 새 북로그 작성하기`}</p>
       <section className="flex flex-col md:flex-row justify-between">
         <div className="w-1/5">
@@ -44,9 +88,21 @@ export default function NewBookLogForm() {
         <h5 className="text-xl font-bold mb-4">
           기록을 통해 더욱 풍부한 독서활동을 경험해보세요 📚
         </h5>
-        <TextEditor />
-        <Button text="내 독서기록 저장하기" />
+        <form onSubmit={onSave}>
+          <TextEditor
+            editorState={editorState}
+            onEditorStateChange={setEditorState}
+            handleKeyCommand={handleKeyCommand}
+          />
+          <Button
+            disabled={isLoading}
+            type="submit"
+            text={isLoading ? "북로그 저장중..." : "내 북로그 저장하기"}
+          />
+        </form>
       </section>
-    </main>
+      <>{success && <p>{success}</p>}</>
+      <>{error && <p>북로그 저장에 문제가 생겼습니다.</p>}</>
+    </section>
   );
 }

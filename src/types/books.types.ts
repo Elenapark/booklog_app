@@ -67,4 +67,5 @@ export interface ISearchBookItemInfo {
   title: string;
   translators: string[];
   url: string; // 도서 상세 페이지 url
+  id?: string;
 }

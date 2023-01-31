@@ -1,3 +1,5 @@
+import { convertToRaw, RawDraftContentState } from "draft-js";
+import { ISearchBookItemInfo } from "./../types/books.types";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -8,8 +10,10 @@ import {
   User,
 } from "firebase/auth";
 import { get, getDatabase, ref, remove, set } from "firebase/database";
+import { ISaveBookLogProps } from "../hooks/useBookLog";
 import { WishListType } from "../hooks/useWishlist";
 import { IBookItemInfo } from "../types";
+import { encrypt } from "../utils/helper/cryptoId";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -79,4 +83,39 @@ export async function removeFromWishList({
   item: WishListType;
 }) {
   return remove(ref(database, `wishlist/${uid}/${item.id}`));
+}
+
+/**
+ * Firebase Realtime Database - booklog
+ */
+
+export async function saveBooklog({
+  uid,
+  item,
+}: {
+  uid?: string;
+  item: ISaveBookLogProps;
+}) {
+  if (!uid) {
+    throw Error("uid가 없습니다!");
+  }
+
+  return await set(ref(database, `booklog/${uid}/${item.info.id}`), {
+    ...item,
+    content: JSON.stringify(convertToRaw(item.content)),
+  });
+}
+
+export interface IGetBookLogProps {
+  info: ISearchBookItemInfo;
+  content: any;
+}
+
+export async function getBooklog(uid: string): Promise<IGetBookLogProps[]> {
+  const snapshot = await get(ref(database, `booklog/${uid}`));
+
+  if (snapshot.exists()) {
+    return Object.values(snapshot.val());
+  }
+  return [];
 }
