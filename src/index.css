@@ -29,7 +29,7 @@ code {
 .wrapper-class {
 }
 .editor-class {
-  @apply bg-white border rounded-md px-2 mb-1 min-h-[300px];
+  @apply bg-white border rounded-md px-2 mb-1 min-h-[300px]  overflow-y-hidden;
 }
 .toolbar-class {
   @apply bg-black;

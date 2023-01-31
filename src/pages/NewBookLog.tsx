@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 import SearchInput from "../components/SearchInput";
 import SearchResult from "../components/SearchResult";
 import Warning from "../components/Warning";
@@ -6,7 +7,7 @@ import { useBookList } from "../context/BookListContext";
 import useDebounce from "../hooks/useDebounce";
 
 export default function NewBookLog() {
-  const { searchBooks, keyword } = useBookList();
+  const { searchBooks, keyword, setKeyword } = useBookList();
   const debouncedKeyword = useDebounce(keyword, 800);
 
   const { error, data } = useQuery(
@@ -24,6 +25,11 @@ export default function NewBookLog() {
     }
   );
 
+  useEffect(() => {
+    return () => {
+      setKeyword("");
+    };
+  }, []);
   return (
     <>
       <h1 className="text-center text-2xl my-10 font-bold">도서 검색하기</h1>
