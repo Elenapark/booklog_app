@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Button from "../components/ui/Button";
 import { useAuth } from "../context/AuthContext";
 import useWishlist from "../hooks/useWishlist";
 import { IBookItemInfo } from "../types";
+
 export default function RecommendedDetail() {
   const { user } = useAuth();
   const navigate = useNavigate();
+
+  // save to wishlist
+
   const {
     wishlistMutation: { mutate, isLoading, error },
   } = useWishlist();
@@ -15,29 +19,29 @@ export default function RecommendedDetail() {
 
   return (
     <main className="p-2">
-      <p className="mb-10 text-zinc-500">{`> ${state.collectionDb}`}</p>
+      {/* 출판사명 추가 */}
+      <p className="mb-10 text-zinc-500">{`> ${state.title}`}</p>
       <section className="flex flex-col md:flex-row justify-between items-end">
         <div className="w-full p-2 md:w-1/3 md:p-0 shadow-md">
           <img
-            src={state.referenceIdentifier}
+            src={state.thumbnail}
             alt={state.title}
             className="w-full h-full object-contain"
           />
         </div>
         <aside className="w-full mt-4 flex flex-col md:w-2/3 md:ml-6 md:mt-0">
-          <h1 className="text-2xl font-bold">{state.title}</h1>
-          <h3>저자 : {state.rights}</h3>
-          <h4 className="mb-10">쪽수 : {state.extent}</h4>
-          <>
-            {success && (
-              <p className={`${success ? "block" : "hidden"}`}>{success}</p>
-            )}
-            {error && (
-              <p className={`${success ? "block" : "hidden"}`}>
-                에러가 발생했습니다.
-              </p>
-            )}
-          </>
+          <div className="flex items-end">
+            <h1 className="text-2xl font-bold mr-2">{state.title}</h1>
+            <a
+              href={state.url}
+              target="_blank"
+              className=" cursor-pointer mr-2 hover:text-indigo-600"
+              rel="noreferrer"
+            >
+              책 구매하러 가기
+            </a>
+          </div>
+
           <Button
             text={isLoading ? "위시리스트에 담는중 ..." : "위시리스트에 담기"}
             disabled={isLoading}
@@ -46,7 +50,8 @@ export default function RecommendedDetail() {
                 {
                   id: state.id,
                   title: state.title,
-                  referenceIdentifier: state.referenceIdentifier,
+                  thumbnail: state.thumbnail,
+                  url: state.url,
                 },
                 {
                   onSuccess: () => {
@@ -55,7 +60,7 @@ export default function RecommendedDetail() {
                       setSuccess(null);
                     }, 3000);
                   },
-                  onError: (err) => {
+                  onError: () => {
                     if (!user) {
                       alert("로그인이 필요합니다.");
                       navigate("/");
@@ -67,10 +72,16 @@ export default function RecommendedDetail() {
           />
         </aside>
       </section>
-      <section className="my-10">
-        <h5 className="text-xl md:text-2xl font-bold">추천사</h5>
-        <p className="text-md md:text-xl"> {state.description}</p>
-      </section>
+      <>
+        {success && (
+          <p className={`${success ? "block" : "hidden"}`}>{success}</p>
+        )}
+        {error && (
+          <p className={`${success ? "block" : "hidden"}`}>
+            에러가 발생했습니다.
+          </p>
+        )}
+      </>
     </main>
   );
 }

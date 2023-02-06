@@ -9,7 +9,7 @@ import { IBookItemInfo } from "../types";
 
 export type WishListType = Pick<
   IBookItemInfo,
-  "id" | "title" | "referenceIdentifier"
+  "id" | "title" | "url" | "thumbnail"
 >;
 
 export default function useWishlist() {
