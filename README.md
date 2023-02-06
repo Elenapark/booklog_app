@@ -4,68 +4,46 @@
 
 - 적극적인 독서 활동을 위한 추천도서 리스트업 및 독서활동 기록 앱
 
+## Period
+
+- 2023.01 ~ 2023.02
+
+## Tech Spec
+
+- React
+- TypeScript
+- Tanstack-query
+- Draft.js
+- TailwindCss
+- Firebase (Auth/Realtime-Database)
+
 ## Features
 
-- 로그인 기능 (Firebase Auth)
+- Firebase를 이용하여 로그인(auth), 데이터베이스(real time database) 적용
 
-- 추천도서 리스트 보여주기
-- 추천도서 상세페이지 보여주기
+- 추천도서 리스트, 상세 페이지 (위시리스트 추가)
 
-  - 문화체육관광부 추천도서 API: https://www.culture.go.kr/data/openapi/openapiView.do?id=170&category=F&gubun=A
-  - 문화체육관광부 대학신입생 추천도서 API: https://www.culture.go.kr/data/openapi/openapiView.do?id=366&category=F&gubun=A
-  - 기타 등등
+  - 의도에 맞는 도서 목록을 가져오기 위해 puppeteer를 이용한 크롤링 데이터 사용
 
-- 위시리스트 (좋아하는 / 나중에 읽을 책) 추가하기
-- 저장된 위시리스트 보여주기
-- 위시리스트 삭제하기
+    <img width="500" alt="main" src="https://user-images.githubusercontent.com/60565155/216973111-3afc1225-dc03-4414-b2d0-35c722c53b9b.png">
+    <img width="500" alt="bookDetail" src="https://user-images.githubusercontent.com/60565155/216973971-32dce6de-e8dc-4694-a018-b2ec49729a22.png">
 
-- 내 북로그 작성하기
+- 위시리스트 (삭제 기능 추가)
 
-  - 도서 검색 API 이용해서 검색하기 : https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book
+  <img width="500" alt="wishlist" src="https://user-images.githubusercontent.com/60565155/216975412-9844df8a-9de1-40e4-bcaf-6d550ac6cd8b.png">
 
-    - 옵션
-      - 읽은 책
-      - 읽고 있는 책
-    - 독서 기간
-      - 시작일자
-      - 종료일자 (읽은 책)
-    - 평점 부여?
-    - 리뷰 작성 기능 (with 텍스트 에디터)
+- 북로그 작성 페이지
 
-  - 직접 도서 등록하기 (이미지, 제목, 지은이, 출판사, ISBN, 페이지 수)
+  - 도서 검색 API 이용 : https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book
 
-- 내 북로그 리스트 보여주기
-  - 북로그 삭제 기능
-- 북로그 상세페이지 보여주기
-  - 리뷰 추가/수정/삭제 기능
+    <img width="500" alt="search-book" src="https://user-images.githubusercontent.com/60565155/216975874-4e13af3f-eb0e-4f20-9740-1547cdbb0c06.png">
 
-## Routing
+  - Draft.js 라이브러리를 이용한 텍스트 에디터 구현
 
-<!-- public  -->
+    <img width="500" alt="add-booklog" src="https://user-images.githubusercontent.com/60565155/216976452-45fffb68-086d-486a-81f4-82b3d5aea55a.png">
+    <img width="500" alt="add-booklog-2" src="https://user-images.githubusercontent.com/60565155/216976488-8d381ed5-987d-4b83-98e9-7b705ef21a03.png">
 
-- path: /
+- 북로그 리스트, 상세페이지 (북로그 수정, 삭제 기능)
 
-  - 배너
-  - 탭으로 이동
-    - 추천도서 리스트
-    - 내가 등록한 위시리스트
-    - 내가 기록한 북로그 리스트
-
-- path: /books/recommended
-- path: /books/recommended/:bookTitle
-
-  - 추천도서 리스트
-  - 특정 추천도서 상세 페이지 : 구매가능 링크 이동?
-
-<!-- private: login한 유저 only -->
-
-- path: /books/wishlist
-
-  - 위시리스트 (+ 삭제 / 좋아요 해제 기능)
-
-- path: /booklog
-- path: /booklog/:logId
-- path: /booklog/new
-  - 내가 기록한 북로그 리스트 (+수정,삭제 기능)
-  - 특정 북로그 상세 페이지
-  - 새로운 북로그 작성 페이지
+    <img width="500" alt="booklog-list" src="https://user-images.githubusercontent.com/60565155/216976826-2f9d87cb-47d8-4859-aca1-e56d4c5c0543.png">
+    <img width="500" alt="edit-booklog" src="https://user-images.githubusercontent.com/60565155/216977023-2b626a00-59ed-401b-aedf-d8dfdcd952d0.png">
