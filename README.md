@@ -1,14 +1,18 @@
 # 📚 BookLog
 
-## Goal
+## 목표
 
 - 적극적인 독서 활동을 위한 추천도서 리스트업 및 독서활동 기록 앱
 
-## Period
+## 배포 주소
+
+- https://resplendent-bonbon-fede5b.netlify.app
+
+## 작업 기간
 
 - 2023.01 ~ 2023.02
 
-## Tech Spec
+## 사용 기술 스택
 
 - React
 - TypeScript
@@ -17,7 +21,7 @@
 - TailwindCss
 - Firebase (Auth/Realtime-Database)
 
-## Features
+## 주요 기능
 
 - Firebase를 이용하여 로그인(auth), 데이터베이스(real time database) 적용
 
