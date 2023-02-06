@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button";
 import { useAuth } from "../context/AuthContext";
 import useWishlist from "../hooks/useWishlist";
