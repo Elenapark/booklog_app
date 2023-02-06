@@ -24,10 +24,10 @@ export default function Recommended() {
         <Warning text="추천 도서 리스트를 준비중입니다." />
       )}
       <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {Books?.map((book: IBookItemInfo, idx: number) => {
+        {Books?.slice(0, 40).map((book: IBookItemInfo, idx: number) => {
           return (
             <BookInfo
-              key={book.regDate + idx}
+              key={book.id + idx}
               book={book}
               onClick={() =>
                 navigate(`/books/recommended/${book.title}`, { state: book })

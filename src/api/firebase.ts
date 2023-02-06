@@ -1,5 +1,5 @@
 import { convertToRaw } from "draft-js";
-import { ISearchBookItemInfo } from "./../types/books.types";
+import { IBookItemInfo, ISearchBookItemInfo } from "./../types/books.types";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -126,4 +126,17 @@ export async function removeBooklog({
   item: ISaveBookLogProps;
 }) {
   return remove(ref(database, `booklog/${uid}/${item.info.id}`));
+}
+
+/**
+ * Firebase Realtime Database - recommendedBooks
+ */
+
+export async function getRecommendedBooks(): Promise<IBookItemInfo[]> {
+  const snapshot = await get(ref(database, `recommended`));
+
+  if (snapshot.exists()) {
+    return Object.values(snapshot.val());
+  }
+  return [];
 }

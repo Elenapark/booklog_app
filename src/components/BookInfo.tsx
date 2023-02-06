@@ -25,7 +25,7 @@ export default function BookInfo({
     >
       <div className="w-full h-[300px] border-b">
         <img
-          src={book.referenceIdentifier}
+          src={book.thumbnail}
           alt={book.title}
           className="w-full h-full object-contain"
         />
