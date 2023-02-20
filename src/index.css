@@ -15,3 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.DraftEditor-root h1 {
+  @apply text-2xl;
+}
+.DraftEditor-root h2 {
+  @apply text-xl;
+}
+.DraftEditor-root h3 {
+  @apply text-lg;
+}
+
+.wrapper-class {
+}
+.editor-class {
+  @apply bg-white border rounded-md px-2 mb-1 min-h-[300px]  overflow-y-hidden;
+}
+.toolbar-class {
+  @apply bg-black;
+}

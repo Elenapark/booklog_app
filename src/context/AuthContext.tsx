@@ -10,7 +10,7 @@ import { googleSignIn, googleSignOut } from "../api/firebase";
 import { IUser, userInfoConverter } from "../utils/converter/userInfoConverter";
 
 interface IAuthContext {
-  user: IUser | null | void;
+  user: IUser | null;
   googleSignIn: () => void;
   googleSignOut: () => void;
 }
@@ -18,7 +18,7 @@ interface IAuthContext {
 const AuthContext = createContext<IAuthContext | undefined>(undefined);
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<IUser | null | void>(null);
+  const [user, setUser] = useState<IUser | null>(null);
 
   useEffect(() => {
     onUserStateChanged((user) => {
